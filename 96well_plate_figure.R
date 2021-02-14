@@ -14,15 +14,16 @@ t <-t %>% arrange(desc(y))
 ex1 <- rep("example1", 4)
 ex2 <- rep("example2", 4)
 ex3 <- rep("example3", 4)
-coating <- rep(c(ex1,ex2,ex3),8)
+coating <- rep(c(ex1,ex2,ex3),8) #This example used a simple repeating pattern.
 
 
 raw_text <- expand.grid(LETTERS[1:8], 1:12) 
 as_text <- paste0(raw_text$Var1,raw_text$Var2)
 text <- unlist(as.data.frame(t(matrix(as_text, nrow = 8))), use.names = FALSE)
+# This example uses generates a matrix, transposed and unlists it to generate the correct order
 
 t <- mutate(t, coating = as.factor(coating), text)
-
+# Generates the final dataframe containing all infomation to generate plot
 
 # This ensures the correct dimentions of the plate.
 ratio <- 0.5
